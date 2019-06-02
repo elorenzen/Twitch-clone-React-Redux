@@ -1,14 +1,12 @@
 import React from 'react';
 
-const client_id = process.env.CLIENT_ID;
-
 class GoogleAuth extends React.Component {
 
     componentDidMount() {
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
-                clientId: client_id,
-                scopes: 'email'
+                clientId: '664535234526-6fd1t1qtd81tkjts72d6c163t4bhu3bf.apps.googleusercontent.com',
+                scope: 'email'
             })
         });
     }
