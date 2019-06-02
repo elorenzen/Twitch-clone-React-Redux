@@ -11,9 +11,16 @@ class GoogleAuth extends React.Component {
                 scope: 'email'
             }).then(() => {
                 this.auth = window.gapi.auth2.getAuthInstance();
+                // sets state of isSignedIn with boolean value according to Google's API isSignedIn property
                 this.setState({ isSignedIn: this.auth.isSignedIn.get() });
-            })
+                // listens for change in boolean value of isSignedIn authorization
+                this.auth.isSignedIn.listen(this.onAuthChange);
+            });
         });
+    };
+
+    onAuthChange = () => {
+        this.setState({ isSignedIn: this.auth.isSignedIn.get() })
     }
 
     renderAuthButton() {
