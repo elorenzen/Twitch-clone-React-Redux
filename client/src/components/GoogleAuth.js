@@ -19,6 +19,7 @@ class GoogleAuth extends React.Component {
         });
     };
 
+    // Creates real-time rendering change according to isSignedIn value
     onAuthChange = () => {
         this.setState({ isSignedIn: this.auth.isSignedIn.get() })
     }
