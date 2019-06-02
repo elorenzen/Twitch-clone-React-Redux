@@ -10,16 +10,16 @@ import Header from '../components/Header';
 
 const App = () => {
     return (
-        <div>
-            <Header />
+        <div className="ui container">
             <BrowserRouter>
-            <div>
-                <Route path="/" exact component={StreamList} />
-                <Route path='/streams/show' component={ShowStream} />
-                <Route path='/streams/new' component={NewStream} />
-                <Route path='/streams/edit' component={EditStream} />
-                <Route path='/streams/delete' component={DeleteStream} />
-            </div>
+                <div>
+                    <Header />
+                    <Route path="/" exact component={StreamList} />
+                    <Route path='/streams/show' component={ShowStream} />
+                    <Route path='/streams/new' component={NewStream} />
+                    <Route path='/streams/edit' component={EditStream} />
+                    <Route path='/streams/delete' component={DeleteStream} />
+                </div>
             </BrowserRouter>
         </div>
     );
