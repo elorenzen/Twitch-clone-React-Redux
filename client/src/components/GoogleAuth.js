@@ -23,7 +23,7 @@ class GoogleAuth extends React.Component {
     // Creates real-time rendering change according to isSignedIn value
     onAuthChange = (isSignedIn) => {
         if (isSignedIn) {
-            this.props.signIn();
+            this.props.signIn(this.auth.currentUser.get().getId());
         } else {
             this.props.signOut();
         }
@@ -47,10 +47,15 @@ class GoogleAuth extends React.Component {
             )   
         } else if(this.props.isSignedIn) {
             return(
-                <button onClick={this.onSignOutClick} className="ui red google button">
-                    <i className="google icon" />
-                    Logout
-                </button >
+                <div className="right menu">
+                    <div className="item">
+                        <p>Signed in as <strong>{this.auth.currentUser.Ab.w3.ig}</strong></p>
+                    </div>
+                    <button onClick={this.onSignOutClick} className="ui red google button">
+                        <i className="google icon" />
+                        Logout
+                    </button >
+                </div>
             )
         }
     }
